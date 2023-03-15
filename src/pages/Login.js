@@ -4,6 +4,7 @@ import {login} from "../redux/apiCalls";
 import {useDispatch, useSelector} from "react-redux";
 import {ArrowBack} from "@material-ui/icons";
 import {useNavigate} from "react-router";
+import {Link} from "react-router-dom";
 
 const Container = styled.div`
     width: 100vw;
@@ -93,6 +94,9 @@ const Login = () => {
                     <Input placeholder="password" type="password" onChange={(e) => setPassword(e.target.value)}/>
                     <Button onClick={handleClick} disabled={isFetching}>LOGIN</Button>
                     {error && <Error>Something went wrong....</Error>}
+                    <Link to={"/register"}>
+                        <LinkContainer>CREATE A NEW ACCOUNT</LinkContainer>
+                    </Link>
                 </Form>
             </Wrapper>
         </Container>
