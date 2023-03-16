@@ -24,6 +24,28 @@ const userRedux = createSlice({
             state.error = true;
             state.isLoggedIn = false;
         },
+        userLogout:(state) => {
+            state.isFetching = false;
+            state.currentUser = null;
+            state.isLoggedIn = false;
+        },
+        register_start:(state) => {
+            state.isFetching = true;
+            state.isLoggedIn = false;
+        },
+        register_success:(state) => {
+            state.isFetching = false;
+            state.isLoggedIn = false;
+        },
+        register_fail:(state) => {
+            state.isFetching = false;
+            state.isLoggedIn = false;
+        },
+        update_success:(state, action) => {
+            state.isFetching = false;
+            state.currentUser = action.payload;
+            state.isLoggedIn = true;
+        },
     },
 });
 
@@ -34,5 +56,5 @@ export const deleteUserThunk = createAsyncThunk(
         return response.data;
     })
 
-export const {loginStart, loginSuccess, loginFail} = userRedux.actions;
+export const {loginStart, loginSuccess, loginFail, userLogout, update_success} = userRedux.actions;
 export default userRedux.reducer;
