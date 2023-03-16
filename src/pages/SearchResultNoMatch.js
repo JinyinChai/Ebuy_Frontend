@@ -7,14 +7,14 @@ const Title = styled.h1`
   margin: 20px;
 `
 
-const SearchNoMatch = () => {
+const SearchResultNoMatch = () => {
     return (
         <Container>
             <Navbar/>
-            <Title>No results found.</Title>
+            <Title>No results found</Title>
             <Footer/>
         </Container>
     )
 }
 
-export default SearchNoMatch
+export default SearchResultNoMatch

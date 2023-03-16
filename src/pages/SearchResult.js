@@ -18,7 +18,7 @@ const ResultsContainer = styled.div`
   justify-content: space-between;
 `
 
-const Search = () => {
+const SearchResult = () => {
     const location = useLocation();
     const cat = location.pathname.split("/")[2];
     const [filters, setFilters] = useState({});
@@ -67,4 +67,4 @@ const Search = () => {
     )
 }
 
-export default Search
+export default SearchResult
