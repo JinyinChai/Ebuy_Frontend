@@ -1,4 +1,5 @@
 import {createAsyncThunk, createSlice} from "@reduxjs/toolkit";
+import {publicRequest} from "../requestMethods";
 
 const userRedux = createSlice({
     name: "cart",
@@ -25,6 +26,13 @@ const userRedux = createSlice({
         },
     },
 });
+
+export const deleteUserThunk = createAsyncThunk(
+    'users/deleteUser',
+    async (userId) => {
+        const response = await publicRequest.delete("/users/delete/" + userId);
+        return response.data;
+    })
 
 export const {loginStart, loginSuccess, loginFail} = userRedux.actions;
 export default userRedux.reducer;
