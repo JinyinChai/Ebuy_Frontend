@@ -101,6 +101,10 @@ const ButtonDiv2 = styled.span`
     padding-left: 10%;
 `
 
+const LabelUId = styled.label`
+    color: blue;
+`
+
 const AdminProfile = () => {
     const curUser = useSelector((state) => state.user.currentUser);
     const goBack = useNavigate();
@@ -172,9 +176,7 @@ const AdminProfile = () => {
                         {users && users.map((user) => (
                             <OrderContainer>
                                 <OrderDiv>
-                                    <Link to={`/publicProfile/${user._id}`}>
-                                        <Label style={{cursor: "pointer"}}>UserId: {user._id}</Label>
-                                    </Link>
+                                    <LabelUId>UserId: {user._id}</LabelUId>
                                     <Label>Username: {user.username}</Label>
                                     <Label>Full name: {user.firstname} {user.lastname}</Label>
                                     <Label>Email: {user.email}</Label>
