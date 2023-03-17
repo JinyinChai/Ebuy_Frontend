@@ -9,7 +9,7 @@ const Container = styled.div`
   width: 100vw;
   height: 100vh;
   background: linear-gradient(rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.5)),
-  url("https://images.pexels.com/photos/6984650/pexels-photo-6984650.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940") center;
+  url("https://img.freepik.com/premium-photo/top-view-desk-concept-with-copy-space_23-2148459757.jpg?w=1800") center;
   background-size: cover;
   display: flex;
   align-items: center;
@@ -108,8 +108,17 @@ const AddProduct = () => {
             setImg(value);
         } else if (id === "price"){
             setPrice(value);
-        } else if (id == "size"){
-            setSize(value);
+        }
+    }
+
+    const handleSizeChange = (e) => {
+        const isChecked = e.target.checked;
+        if (isChecked){
+            setSize([...size, e.target.value]);
+        } else {
+            const index = size.indexOf(e.target.value);
+            size.splice(index, 1);
+            setSize(size);
         }
     }
 
@@ -162,9 +171,34 @@ const AddProduct = () => {
                     <InputDiv>
                         <Input placeholder="Image Url" id="img" onChange= {(e) => handleInputChange(e)}/>
                     </InputDiv>
-                    <InputDiv>
-                        <Input placeholder="Size" id="size" onChange= {(e) => handleInputChange(e)}/>
-                    </InputDiv>
+
+                    <SizeForm>
+                        <SizeP>Select Sizes</SizeP>
+                        <SizeDiv>
+                            <SizeInput type="checkbox" name="size" id="64G" value="64G" onChange= {(e) => handleSizeChange(e)}/>
+                            <SizeLabel htmlFor="size1" for="64G">64G</SizeLabel>
+                        </SizeDiv>
+                        <SizeDiv>
+                            <SizeInput type="checkbox" name="size" id="128G" value="128G" onChange= {(e) => handleSizeChange(e)}/>
+                            <SizeLabel htmlFor="size2" for="128G">128G</SizeLabel>
+                        </SizeDiv>
+                        <SizeDiv>
+                            <SizeInput type="checkbox" name="size" id="256G" value="256G" onChange= {(e) => handleSizeChange(e)}/>
+                            <SizeLabel htmlFor="size3" for="256G">256G</SizeLabel>
+                        </SizeDiv>
+                        <SizeDiv>
+                            <SizeInput type="checkbox" name="size" id="512G" value="512G" onChange= {(e) => handleSizeChange(e)}/>
+                            <SizeLabel htmlFor="size4" for="512G">512G</SizeLabel>
+                        </SizeDiv>
+                        <SizeDiv>
+                            <SizeInput type="checkbox" name="size" id="1T" value="1T" onChange= {(e) => handleSizeChange(e)}/>
+                            <SizeLabel htmlFor="size5" for="1T">1T</SizeLabel>
+                        </SizeDiv>
+                        <SizeDiv>
+                            <SizeInput type="checkbox" name="size" id="2T" value="2T" onChange= {(e) => handleSizeChange(e)}/>
+                            <SizeLabel htmlFor="size6" for="2T">2T</SizeLabel>
+                        </SizeDiv>
+                    </SizeForm>
 
                     <SizeForm>
                         <SizeP>Select Colors</SizeP>
